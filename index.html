@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TMusic播放器</title>
+	<link rel="stylesheet" href="css/TMusic.css">
+</head>
+<body>
+	<!-- 播放器代码开始 -->
+	<div id="divplayer" class="tmusic" style="left: 0px;">
+		<div id="divsongframe" class="tmusic_dock">
+			<div class="music_info" id="divsonginfo">
+				<a target="contentFrame" class="album_pic"><img src="images/cover_mine_130.jpg" alt="" onerror="this.src='images/cover_mine_130.jpg'"></a>
+				<div class="music_info_main">
+					<p class="music_name">音乐你的生活</p>
+					<p class="singer_name">TMusic</p>
+					<p class="player_date" id="ptime"></p>
+					<p class="music_op" style="display: none"></p>
+				</div>
+			</div>
+			<div class="bar_op">
+				<strong class="prev_bt" title="上一首" onclick="TMusic.prev();"><span>上一首</span></strong>
+				<strong class="play_bt" id="btnplay" onclick="TMusic.play();"><span>播放</span></strong>
+				<strong class="next_bt" onclick="TMusic.next();"><span>下一首</span></strong>
+				<strong class="cycle_bt" id="btnPlayway" onclick="TMusic.setPlayWay();"><span>列表循环</span></strong>
+				<p class="volume">
+					<span class="volume_icon" id="spanmute"></span>
+					<span class="volume_regulate" id="spanvolume">
+						<span id="spanvolumenum">0</span>
+						<span class="volume_bar" style="width:0%;" id="spanvolumebar"></span>
+						<span class="volume_op" style="left:60%;" id="spanvolumeop" ></span>
+					</span>
+				</p>
+			</div>
+			<p id="divselect" class="playbar_cp_select"></p>
+			<p class="player_bar">
+				<span class="player_bg_bar" id="spanplayer_bgbar"></span>
+				<span class="download_bar" id="downloadbar" style="width: 0%;"></span>
+            	<span class="play_current_bar" style="width: 0%;" id="spanplaybar"></span>
+           		<span class="progress_op" style="left: 0%;" id="spanprogress_op"></span>
+			</p>
+			<div class="time_show" style="left:240px;bottom:8px;display: none;">
+				<p id="time_show"></p>
+           		<span class="icon_arrow_foot"><i class="foot_border"></i><i class="foot_arrow"></i></span>
+			</div>
+		</div>
+		<span id="spanaddtips" class="active_tip" style="top:0px;display: none;"></span>
+		<span id="spansongnum1" class="open_list" title="展开播放列表"><span>0</span></span>
+		<button id="btnfold" class="folded_bt" type="button" title="点击收起"><span>点击收起/展开</span></button>
+
+		<!-- 播放列表 -->
+		<div id="divplayframe" class="play_list_frame" style="display: none;filter:alpha(opacity=0);opacity: 0;"> <div class="play_list_title">
+				<ul id="tab_container" style="width: 270px;">
+					<li id="playlist_tab" class="current"><a href="">播放列表</a></li>
+				</ul>
+				<span id="clear_list" class="clear_list">清空列表</span>
+				<strong class="close_list" id="btnclose" title="收起播放列表"></strong>
+			</div>
+			<div class="play_list" id="divlistmain">
+				<!-- 播放列表为空时的提示内容 -->
+				<div id="divnulllist" class="play_list_point" style="display: block;">
+					<div>
+						<h4>您当前还未添加任何歌曲</h4>
+						<p>您可以：</p>
+						<p>在<a href="">首页</a>选择试听我们的歌曲</p>
+						<p>在<a href="">乐库</a>查找想听的歌曲</p>
+					</div>
+				</div>
+				<!-- 播放列表为空时的提示内容 -->
+				<!-- 列表滚动条 -->
+				<div class="play_list_scroll" style="top:0xp;"><span id="spanbar" class="play_list_scrolling"></span></div>
+				<!-- 列表滚动条 -->
+			</div>
+		</div>
+		<!-- 播放列表 -->
+	</div>
+	<!-- 播放器代码结束 -->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/player.js"></script>
+</body>
+</html>
